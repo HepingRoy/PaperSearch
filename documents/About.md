@@ -21,22 +21,27 @@ PaperSearch是一个B/S架构的Paper内容检索服务。把实验室收录比�
 ## Iterations
 ### Iteration one
  - 实现搜索页面和后端服务框架搭建
-### weeks
- - 需求分析
- - 概要设计&详细设计
- - 编码&测试
-   - 前端
-   - 后端
+### goals
+ - 实现搜索页面布局，搜索前端数据分页，搜索内容展示。
+ - 实现solr分词配置，solr索引配置，solr API封装，搜索内容高亮匹配。
+### Week 1
+ - 实现框架搭建，创建github库，push代码。
+ - 后端：搭建配置SpringMVC
+ - 前端：使用ReactJs实现搜索页面
 
+### Week 2
+ - 后端：配置solr索引字段，配置分词，编码封装solr API。
+ - 前端：实现前端数据分页和数据展示样式设计。
+
+### Week 3
+ - 后端：搜索高亮处理，solr API封装接口调整
+ - 前端：修改样式和修改数据bugs
 ---
 ### Iteration two
- - 实现搜索页面和后端服务框架搭建
-### weeks
- - 需求分析
- - 概要设计&详细设计
- - 编码&测试
-   - 前端
-   - 后端
+ - goals
+ - 实现上传页面布局，PDF，DOC,DOCX文件解析。
+ - 英文分词优化。
+### week
 
 ---
 ### Final
