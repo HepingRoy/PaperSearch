@@ -4,21 +4,16 @@ import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,8 +24,6 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import solr.bean.QResult;
 import solr.bean.RPic;
 import solr.bean.SolrPage;
-import solr.dataimport.AttachmentManager;
-import solr.dataimport.IAttachmentManager;
 import solr.service.FileUpload;
 import solr.service.Timss4SolrService;
 
@@ -46,8 +39,6 @@ public class SolrController {
 	Timss4SolrService timss4SolrService;
 	@Autowired
 	FileUpload fileUpload;
-	@Autowired
-	IAttachmentManager attachManager;
 	@Value("#{solrURLProperties['picPath']}")
 	private String picPath;
 	@RequestMapping("/query.do")
@@ -104,13 +95,6 @@ public class SolrController {
 	        bis.close(); 
 	        bos.close();
 	}
-	@RequestMapping("/callback.do")
-	public void callBack(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	 String id = String.valueOf( request.getParameter( "id" ) );
-         int status = Integer.valueOf( String.valueOf( request.getParameter( "status" ) ) );
-         String args = String.valueOf( request.getParameter( "args" ) );
-         attachManager.callBack2ReceiveNotify( id, status, args );
-    }
 	@RequestMapping("/getpic.do")
 	public @ResponseBody RPic test(@RequestBody Map<String,String> param){
 		RPic result = new RPic();

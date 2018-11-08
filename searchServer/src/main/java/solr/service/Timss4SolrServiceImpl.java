@@ -1,7 +1,6 @@
 package solr.service;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.poi.hslf.dev.SlideAndNotesAtomListing;
 import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.common.SolrDocumentList;
 import org.apache.solr.common.SolrInputDocument;

@@ -1,7 +1,6 @@
 package solr.service;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,7 +10,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import solr.dataimport.FileConvert;
-import solr.dataimport.IAttachmentManager;
 @Service
 public class FileUploadImpl implements FileUpload {
 	// 上传文件存储目录
@@ -19,8 +17,6 @@ public class FileUploadImpl implements FileUpload {
 	private String UPLOAD_DIRECTORY;
 	@Autowired
 	Timss4SolrService timss4SolrService;
-	@Autowired
-	IAttachmentManager attachManager;
 	@Override
 	public void upload(MultipartFile[] files, String site, String userid, String userName, String label) {
 		// TODO Auto-generated method stub
@@ -41,7 +37,6 @@ public class FileUploadImpl implements FileUpload {
 				params.put("url", UPLOAD_DIRECTORY+fileName);
 				timss4SolrService.insert(params, file.getInputStream());
 				file.transferTo(targetFile);
-				//attachManager.file2img(targetFile);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
