@@ -1,0 +1,48 @@
+<!--
+<dataConfig>
+   <dataSource type="BinFileDataSource"/>
+   <document>
+     <entity name="tika-test" processor="TikaEntityProcessor" 
+	           url="D:/apache-tomcat-8.0.45/webapps/solr5/home/solr-word.pdf" format="text"
+			   >
+         <field column="file"  name="title" meta="true"/>
+		 <field column="title"  name="id" meta="true"/>
+		 <field column="fileLastModified" name="last_modified" meta="true"/>
+		 <field column="text" name="content" stripHTML="true" regex="\t|\r|\n|\s" replaceWith="" />
+     </entity>
+	</document>
+</dataConfig>
+-->
+<dataConfig>  
+   <!-- <dataSource name="fileDataSource" type="FileDataSource" />       -->
+    <dataSource name="tika" type="BinFileDataSource" />  
+    <document>  
+            <entity name="files" dataSource="tika" rootEntity="false"  
+            processor="FileListEntityProcessor"  
+            baseDir="E:/document" fileName=".*\.(doc)|(pdf)|(docx)|(txt)"  
+            onError="skip"  
+            recursive="true">  
+			<!--
+                <field column="fileAbsolutePath" name="filePath" />  
+                <field column="fileSize" name="size" />  
+				<field column="plainText" name="content"/> 
+				<field column="text" name="text" stripHTML="true" regex="\t|\r|\n|\s" replaceWith="" />			
+				-->
+				<field column="fileAbsolutePath"  name="file_id" meta="true"/>	
+                <field column="fileLastModified" name="file_last_modified" />  
+				<field column="fileSize" name="file_size" />  
+				<field column="file"  name="file_name"/>	
+                   
+                <entity processor="TikaEntityProcessor" 
+				        name="doucument" url="${files.fileAbsolutePath}" 
+				        dataSource="tika" 
+				        format="text"
+				        transformer="HTMLStripTransformer,RegexTransformer">  
+				<!-- 使用regex正则匹配时需要在entity里添加transformert=”RegexTransformer“属性 -->
+				<!-- stripHTML 是过滤掉html标签属性，需要在entity添加transformer="HTMLStripTransformer” -->
+				    <field column="text" name="file_content" stripHTML="true" regex="\t|\r|\n|\s" replaceWith=""/> 
+                               		
+                </entity>  
+        </entity>  
+    </document>   
+</dataConfig>  
