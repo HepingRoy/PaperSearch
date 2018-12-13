@@ -3,9 +3,6 @@
     <CLASSES>
       <root url="jar://D:/m2/repository/org/slf4j/jcl-over-slf4j/1.7.7/jcl-over-slf4j-1.7.7.jar!/" />
     </CLASSES>
-    <JAVADOC>
-      <root url="jar://D:/m2/repository/org/slf4j/jcl-over-slf4j/1.7.7/jcl-over-slf4j-1.7.7-javadoc.jar!/" />
-    </JAVADOC>
     <SOURCES>
       <root url="jar://D:/m2/repository/org/slf4j/jcl-over-slf4j/1.7.7/jcl-over-slf4j-1.7.7-sources.jar!/" />
     </SOURCES>
