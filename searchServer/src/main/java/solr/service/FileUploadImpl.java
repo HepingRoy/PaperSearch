@@ -18,10 +18,10 @@ public class FileUploadImpl implements FileUpload {
 	@Autowired
 	Timss4SolrService timss4SolrService;
 	@Override
-	public void upload(MultipartFile[] files, String site, String userid, String userName, String label) {
+	public void upload(MultipartFile[] files, String userid, String author, String year, String name, String isPrivate) {
 		// TODO Auto-generated method stub
 		for (MultipartFile file : files) {
-			String fileName = site + file.getOriginalFilename();
+			String fileName = file.getOriginalFilename();
 			File targetFile = new File(UPLOAD_DIRECTORY, fileName);
 			if (!targetFile.exists()) {
 				targetFile.setWritable(true, false);
@@ -29,11 +29,12 @@ public class FileUploadImpl implements FileUpload {
 			}
 			try {
 				Map<String, Object> params = new HashMap<>();
-				params.put("site", site);
-				params.put("fileName", file.getOriginalFilename());
-				params.put("userId", userid);
-				params.put("userName", userName);
-				params.put("label", label);
+				params.put("userid", userid);
+				params.put("content_type", "pdf");
+				params.put("author", author);
+				params.put("name", name);
+				params.put("year", year);
+				params.put("isprivate",isPrivate);
 				params.put("url", UPLOAD_DIRECTORY+fileName);
 				timss4SolrService.insert(params, file.getInputStream());
 				file.transferTo(targetFile);

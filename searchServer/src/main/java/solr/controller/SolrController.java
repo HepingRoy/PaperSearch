@@ -53,15 +53,17 @@ public class SolrController {
 	public void fileUpload(@RequestParam(value = "file", required = false) MultipartFile[] files,
 			HttpServletRequest request) {
 		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
-		String site = multipartRequest.getParameterValues("site") != null
-				? multipartRequest.getParameterValues("site")[0] : null;
-		String user = multipartRequest.getParameterValues("user") != null
-				? multipartRequest.getParameterValues("user")[0] : null;
-		String label = multipartRequest.getParameterValues("label") != null
-				? multipartRequest.getParameterValues("label")[0] : null;
 		String userid = multipartRequest.getParameterValues("userid") != null
 				? multipartRequest.getParameterValues("userid")[0] : null;
-        fileUpload.upload(files, site, userid, user, label);
+		String author = multipartRequest.getParameterValues("author") != null
+				? multipartRequest.getParameterValues("author")[0] : null;
+		String year = multipartRequest.getParameterValues("year") != null
+				? multipartRequest.getParameterValues("year")[0] : null;
+		String name = multipartRequest.getParameterValues("name") != null
+				? multipartRequest.getParameterValues("name")[0] : null;
+		String isPrivate = multipartRequest.getParameterValues("isprivate") != null
+				? multipartRequest.getParameterValues("isprivate")[0] : null;
+        fileUpload.upload(files, userid, author, year, name, isPrivate);
 	}
 	@RequestMapping("/download.do")
 	public void download(HttpServletRequest request, HttpServletResponse response) throws IOException{

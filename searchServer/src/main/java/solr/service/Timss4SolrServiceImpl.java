@@ -169,21 +169,22 @@ public class Timss4SolrServiceImpl implements Timss4SolrService {
 	public QResult insert(Map<String, Object> params, InputStream fileStream) {
 		QResult result= new QResult();
 		SolrInputDocument doc = new SolrInputDocument();
-		if(params.get("site")==null){
+		if(params.get("userid")==null){
 			result.setCode(QResult.FAILURE);
-			result.setMsg("缺少站点信息");
+			result.setMsg("缺少用户信息");
 			return result;
 		}
 		FileConvertFactory fileConvertFactory = new FileConvertFactory();
 		String content = fileConvertFactory.fileCovertText(fileStream, params.get("fileName").toString());
-		doc.addField("id", params.get("site").toString()+params.get("fileName").toString());
-		doc.addField("file_content", content.replaceAll("\t", "").replaceAll("\n", "").replaceAll("\r", ""));
-		doc.addField("file_name", params.get("fileName"));
-		doc.addField("site", params.get("site"));
-		doc.addField("user", params.get("userName"));
-		doc.addField("userId", params.get("userId"));
+		doc.addField("id", params.get("name").toString());
+		doc.addField("content", content.replaceAll("\t", "").replaceAll("\n", "").replaceAll("\r", ""));
+		doc.addField("name", params.get("name"));
+		doc.addField("author", params.get("author"));
+		doc.addField("content_type", params.get("content_type"));
+		doc.addField("userid", params.get("userid"));
 		doc.addField("file_url", params.get("url"));
-		doc.addField("file_label", params.get("label"));
+		doc.addField("year", params.get("year"));
+		doc.addField("isprivate", params.get("isprivate"));
 		try {
 			solrCilentService.addIndex(core, doc);
 			result.setCode(QResult.SUCCESS);

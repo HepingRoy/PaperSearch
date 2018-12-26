@@ -1,0 +1,15 @@
+solr\service\FileUpload.class
+solr\bean\QResult$Doc.class
+solr\bean\QResult.class
+solr\service\Timss4SolrService.class
+solr\dataimport\FileConvertFactory.class
+solr\service\FileUploadImpl.class
+solr\bean\SolrPage.class
+solr\service\Timss4SolrServiceImpl.class
+solr\solrj\SolrCilentService.class
+solr\controller\SolrController.class
+solr\dataimport\FileConvert.class
+solr\solrj\SolrClientServiceImpl.class
+solr\dataimport\OfficeFileConvertText.class
+solr\dataimport\PdfConvertText.class
+solr\bean\RPic.class

@@ -14,20 +14,25 @@
     <fieldset>
         <legend>索引属性</legend>
         <div class="form-row">
-            <div class="field-label"><label for="v">站点ID</label>:</div>
-            <div class="field-widget"><input name="site" id="site" class="required" /></div>
+            <div class="field-label"><label for="Paper Name">Paper Name</label>:</div>
+            <div class="field-widget"><input name="name" id="site" class="required" /></div>
         </div>
         <div class="form-row">
-            <div class="field-label"><label for="label">标签</label>:</div>
-            <div class="field-widget"><input name="label" id="label" class="required" /></div>
+            <div class="field-label"><label for="Author">Author</label>:</div>
+            <div class="field-widget"><input name="author" id="label" class="required" /></div>
         </div>
       <div class="form-row">
-            <div class="field-label"><label for="user">用户名</label>:</div>
-            <div class="field-widget"><input name="user" id="user" class="required" /></div>
+            <div class="field-label"><label for="Publish Year">Publish Year</label>:</div>
+            <div class="field-widget"><input name="year" id="user" class="required" /></div>
         </div>
         <div class="form-row">
-            <div class="field-label"><label for=""userid"">用户ID</label>:</div>
-            <div class="field-widget"><input name="userid" id="userid" class="required" /></div>
+            <div class="field-label"><label for="Is Private">Is Private</label>:</div>
+            <div class="field-widget"><input name="isprivate" value="1"  type="radio"/><label for="public">public</label></div>
+            <div class="field-widget"><input name="isprivate" value="0"  type="radio"/><label for="private">private</label></div>
+        </div>
+        <div class="form-row">
+            <div class="field-label"></div>
+            <div class="field-widget"><input name="userid" id="userid" value="ziye"  type="hidden"/></div>
         </div>
     </fieldset>
     <fieldset>
@@ -53,7 +58,7 @@
 	$(function() {
 		$("#file_upload").uploadify({//上传文件
 			'method' : 'post',
-			'uploader' : '/solrsearch/solr/upload.do', //文件上传的请求
+			'uploader' : '/solr/upload.do', //文件上传的请求
 			'swf' : '../uploadify/uploadify.swf',//动态控件
 			'queueID' : 'file_queue',//与下面的id对应    文件上传队列显示的地方
 			'fileDesc' : 'rar文件或zip文件',
