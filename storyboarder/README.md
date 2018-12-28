@@ -6,4 +6,4 @@ UI框架主要有bootstrap，easyUI等比较经典的框架，也有Ant Design,A
 考虑到搜索的UI主要对数据进行数据，因此选择数据驱动的UI框架性能比较好，这里我选择蚂蚁金服的Ant Design框架作为UI框架。
 
 ### UI prototyping process
-[![screenshot](https://github.com/zittygit/PaperSearch/blob/master/documents/Diagrams/UIusercase.svg)]
+[![screenshot](https://github.com/zittygit/PaperSearch/blob/master/documents/Diagrams/UIprocessing.png)]
