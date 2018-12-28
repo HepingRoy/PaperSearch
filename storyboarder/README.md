@@ -11,14 +11,14 @@ UI框架主要有bootstrap，easyUI等比较经典的框架，也有Ant Design,A
 ## Concrete UI prototype
 由于Ant Design框架是由js封装html元素，可以实现前后端分离。这里我们主要以截图方式展示我们具体的UI。
 ### login & register
-[screenshot](https://github.com/zittygit/PaperSearch/blob/master/documents/UI/login.png)
-[screenshot](https://github.com/zittygit/PaperSearch/blob/master/documents/UI/register.png)
+![screenshot](https://github.com/zittygit/PaperSearch/blob/master/documents/UI/login.png)
+![screenshot](https://github.com/zittygit/PaperSearch/blob/master/documents/UI/register.png)
 
 ### index
-[screenshot](https://github.com/zittygit/PaperSearch/blob/master/documents/UI/UI.png)
+![screenshot](https://github.com/zittygit/PaperSearch/blob/master/documents/UI/UI.png)
 
 ### searching
-[screenshot](https://github.com/zittygit/PaperSearch/blob/master/documents/UI/201812280881444.png)
+![screenshot](https://github.com/zittygit/PaperSearch/blob/master/documents/UI/201812280881444.png)
 
 ### uploading
-[screenshot](https://github.com/zittygit/PaperSearch/blob/master/documents/UI/20181228081710.png)
+![screenshot](https://github.com/zittygit/PaperSearch/blob/master/documents/UI/20181228081710.png)
