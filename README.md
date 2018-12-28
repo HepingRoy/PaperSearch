@@ -4,6 +4,6 @@
 - [Ivertigation](./documents/Investigation.md)
 - [Vison](./documents/Vision.md)
 - [Product backlog](./documents/Product_Backlog)
-- [Requirement specification](./documents/Requirement specification.md)
+- [Requirement specification](./documents/Requirement_specification.md)
 - [Design](./documents/Design.md)
 - [Meet recording](./documents/Meet_Recording.md)
