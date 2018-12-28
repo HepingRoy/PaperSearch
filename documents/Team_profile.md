@@ -1,5 +1,5 @@
 # PaperSearch 团队建设
-#### `团队名称`：NetLab
+#### `团队名称`：NetLab Paper Easy
 #### `团队目标`：让PaperSearch快速找到你想要的paper
 #### `团队成员`
 |学号|姓名|英文名|角色|职务|
