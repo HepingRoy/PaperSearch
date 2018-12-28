@@ -55,15 +55,15 @@ public class SolrController {
 		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
 		String userid = multipartRequest.getParameterValues("userid") != null
 				? multipartRequest.getParameterValues("userid")[0] : null;
-		String author = multipartRequest.getParameterValues("author") != null
-				? multipartRequest.getParameterValues("author")[0] : null;
+		String authors = multipartRequest.getParameterValues("authors") != null
+				? multipartRequest.getParameterValues("authors")[0] : null;
 		String year = multipartRequest.getParameterValues("year") != null
 				? multipartRequest.getParameterValues("year")[0] : null;
 		String name = multipartRequest.getParameterValues("name") != null
 				? multipartRequest.getParameterValues("name")[0] : null;
 		String isPrivate = multipartRequest.getParameterValues("isprivate") != null
 				? multipartRequest.getParameterValues("isprivate")[0] : null;
-        fileUpload.upload(files, userid, author, year, name, isPrivate);
+        fileUpload.upload(files, userid, authors, year, name, isPrivate);
 	}
 	@RequestMapping("/download.do")
 	public void download(HttpServletRequest request, HttpServletResponse response) throws IOException{

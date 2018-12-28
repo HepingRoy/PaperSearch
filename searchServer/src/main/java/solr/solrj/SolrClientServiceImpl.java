@@ -57,7 +57,7 @@ public class SolrClientServiceImpl implements SolrCilentService {
 
         if(params.getParams().get("hl")!=null){
             query.setHighlight(true);
-            query.addHighlightField("file_content,file_name");
+            query.addHighlightField("content,name");
             /*query.setHighlightSimplePre("<font color='red'>");
             query.setHighlightSimplePost("</font>");*/
             query.setHighlightFragsize(90);

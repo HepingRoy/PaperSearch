@@ -15,15 +15,15 @@
         <legend>索引属性</legend>
         <div class="form-row">
             <div class="field-label"><label for="Paper Name">Paper Name</label>:</div>
-            <div class="field-widget"><input name="name" id="site" class="required" /></div>
+            <div class="field-widget"><input name="name" id="name" class="required" /></div>
         </div>
         <div class="form-row">
             <div class="field-label"><label for="Author">Author</label>:</div>
-            <div class="field-widget"><input name="author" id="label" class="required" /></div>
+            <div class="field-widget"><input name="author" id="author" class="required" /></div>
         </div>
       <div class="form-row">
             <div class="field-label"><label for="Publish Year">Publish Year</label>:</div>
-            <div class="field-widget"><input name="year" id="user" class="required" /></div>
+            <div class="field-widget"><input name="year" id="year" class="required" /></div>
         </div>
         <div class="form-row">
             <div class="field-label"><label for="Is Private">Is Private</label>:</div>
@@ -70,7 +70,7 @@
 			'fileObjName':'file'
 		});
 		$("#submit").click(function(){
-		    formdata={site:$("#site").val(),label:$("#label").val(),user:$("#user").val(),userid:$("#userid").val()}
+		    formdata={name:$("#name").val(),authors:$("#author").val(),year:$("#year").val(),userid:$("#userid").val(),isprivate:$("#isprivate").val()}
 		    $('#file_upload').uploadify('settings','formData',formdata)
 		    $('#file_upload').uploadify('upload','*')
 		})

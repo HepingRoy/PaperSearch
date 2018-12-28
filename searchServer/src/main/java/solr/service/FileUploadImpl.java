@@ -18,7 +18,7 @@ public class FileUploadImpl implements FileUpload {
 	@Autowired
 	Timss4SolrService timss4SolrService;
 	@Override
-	public void upload(MultipartFile[] files, String userid, String author, String year, String name, String isPrivate) {
+	public void upload(MultipartFile[] files, String userid, String authors, String year, String name, String isPrivate) {
 		// TODO Auto-generated method stub
 		for (MultipartFile file : files) {
 			String fileName = file.getOriginalFilename();
@@ -29,10 +29,11 @@ public class FileUploadImpl implements FileUpload {
 			}
 			try {
 				Map<String, Object> params = new HashMap<>();
+				params.put("fileName",file.getOriginalFilename());
 				params.put("userid", userid);
 				params.put("content_type", "pdf");
-				params.put("author", author);
-				params.put("name", name);
+				params.put("authors", authors);
+				params.put("name", (name!=null&&!name.isEmpty())?name:file.getOriginalFilename());
 				params.put("year", year);
 				params.put("isprivate",isPrivate);
 				params.put("url", UPLOAD_DIRECTORY+fileName);

@@ -10,7 +10,9 @@
 	<link rel="stylesheet" type="text/css" href="../css/jquery.fancybox-thumbs.css?v=1.0.7" />
 	<script type="text/javascript" src="../js/jquery.fancybox-thumbs.js?v=1.0.7"></script>
 	<script type="text/javascript" src="../js/jquery.fancybox-media.js?v=1.0.6"></script>
+      <script type="text/javascript" src="../js/dao.js"></script>
     <script type="text/javascript">
+
     	function pic(value){
     		var url = "/solrsearch/solr/getpic.do";
       	  CALLJSON(url,{fileName:value},function (e){
@@ -29,6 +31,6 @@
   </head>
   <body>
     <div id="index"></div>
-    <script type="text/javascript" src="../js/index3.js"></script>
+    <script type="text/javascript" src="../js/index.js"></script>
   </body>
 </html>

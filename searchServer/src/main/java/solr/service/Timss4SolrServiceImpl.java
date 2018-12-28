@@ -14,10 +14,8 @@ import solr.solrj.SolrCilentService;
 import java.io.InputStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+
 /**
  * @author 890213
  * @version 1.0
@@ -41,10 +39,10 @@ public class Timss4SolrServiceImpl implements Timss4SolrService {
 		if ((split = analyseKeyWords(keyWord)) != null) {
 			String[] keys = keyWord.split(split);
 			queryKey = keys[1];
-			queryFilter = "file_label:*" + keys[0].replaceAll(" ", "").replaceAll("　", "") + "*";
-			queryFeild = "file_keywords:"+ keys[1].replaceAll(" ", "").replaceAll("　", "");
+			queryFilter = "year:*" + keys[0].replaceAll(" ", "").replaceAll("　", "") + "*";
+			queryFeild = "paper_keyword:"+ keys[1].replaceAll(" ", "").replaceAll("　", "");
 		} else {
-			queryFeild = "file_keywords:" + keyWord.replaceAll(" ", "").replaceAll("　", "");
+			queryFeild = "paper_keyword:" + keyWord;
 		}
 		SolrPage params = new SolrPage();
 		params.setStart(start);
@@ -58,41 +56,41 @@ public class Timss4SolrServiceImpl implements Timss4SolrService {
 			fields.put("file_type", type);
 		}
 		param.put("hl", "true");
-		param.put("fl", "id,file_label,file_name,file_url,site");
+		//param.put("fl", "content,author");
 		params.setParams(param);
 		params.setFields(fields);
 		QResult result = new QResult();
 		try {
-			QueryResponse response = solrCilentService.query(core, queryFeild,queryFilter, params);
+			QueryResponse response = solrCilentService.query(core, queryFeild, queryFilter, params);
 			Map<String, Map<String, List<String>>> hl = response.getHighlighting();
 			SolrDocumentList documentList = response.getResults();
 			List<QResult.Doc> docList = new ArrayList<QResult.Doc>();
-			DateFormat dateFormat = new SimpleDateFormat("yyyy年MM月dd日");
+			//DateFormat dateFormat = new SimpleDateFormat("yyyy年MM月dd日");
 			for (int i = 0; i < documentList.size(); i++) {
 				QResult.Doc doc = result.new Doc();
 				String fileName = null;
 				if (hl.get(documentList.get(i).get("id")) != null) {
-					fileName = hl.get(documentList.get(i).get("id")).get("file_name") != null
-							? Highlight(hl.get(documentList.get(i).get("id")).get("file_name").get(0),queryKey) : null;
+					fileName = hl.get(documentList.get(i).get("id")).get("name") != null
+							? Highlight(hl.get(documentList.get(i).get("id")).get("name").get(0),queryKey) : null;
 
 				}
 				String content = null;
 				if (hl.get(documentList.get(i).get("id")) != null) {
-					content = hl.get(documentList.get(i).get("id")).get("file_content") != null
-							? Highlight(hl.get(documentList.get(i).get("id")).get("file_content").get(0),queryKey) : null;
+					content = hl.get(documentList.get(i).get("id")).get("content") != null
+							? Highlight(hl.get(documentList.get(i).get("id")).get("content").get(0),queryKey) : null;
 				}
 				if(fileName==null&&content==null)continue;
 				if(fileName==null){
-					fileName=documentList.get(i).get("file_name").toString();
+					fileName=documentList.get(i).get("name").toString();
 				}
-				doc.setTitle(fileName);
+				doc.setTitle(fileName.substring(1,fileName.length()-5));
 				doc.setContent(content);
 				doc.setAuthor(
-						documentList.get(i).get("user") != null ? documentList.get(i).get("user").toString() : null);
-				doc.setSite(documentList.get(i).get("site") != null
-						? documentList.get(i).get("site").toString() : null);
-				doc.setLabel(documentList.get(i).get("file_label") != null
-						? documentList.get(i).get("file_label").toString() : null);
+						documentList.get(i).get("authors") != null ? documentList.get(i).get("authors").toString() : null);
+				doc.setSite(documentList.get(i).get("author") != null
+						? documentList.get(i).get("authors").toString() : null);
+				doc.setLabel(documentList.get(i).get("year") != null
+						? documentList.get(i).get("year").toString() : null);
 				doc.setSize(documentList.get(i).get("file_size") != null
 						? documentList.get(i).get("file_size").toString() : null);
 				doc.setUrl(documentList.get(i).get("file_url") != null ? documentList.get(i).get("file_url").toString()
@@ -176,10 +174,10 @@ public class Timss4SolrServiceImpl implements Timss4SolrService {
 		}
 		FileConvertFactory fileConvertFactory = new FileConvertFactory();
 		String content = fileConvertFactory.fileCovertText(fileStream, params.get("fileName").toString());
-		doc.addField("id", params.get("name").toString());
+		doc.addField("id", UUID.randomUUID().toString());
 		doc.addField("content", content.replaceAll("\t", "").replaceAll("\n", "").replaceAll("\r", ""));
 		doc.addField("name", params.get("name"));
-		doc.addField("author", params.get("author"));
+		doc.addField("authors", params.get("authors"));
 		doc.addField("content_type", params.get("content_type"));
 		doc.addField("userid", params.get("userid"));
 		doc.addField("file_url", params.get("url"));
