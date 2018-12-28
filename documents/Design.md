@@ -8,4 +8,4 @@
 ![system_user_case](https://github.com/zittygit/PaperSearch/blob/master/documents/UI/20181228081710.png)
 ![system_user_case](https://github.com/zittygit/PaperSearch/blob/master/documents/UI/20181228081739.png)
 ## Databse design
-![er](https://github.com/zittygit/PaperSearch/blob/master/documents/Diagrams/er.png)
+![er](https://github.com/zittygit/PaperSearch/blob/master/documents/UI/er.png)
