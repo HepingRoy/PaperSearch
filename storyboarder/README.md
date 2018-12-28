@@ -18,7 +18,7 @@ UI框架主要有bootstrap，easyUI等比较经典的框架，也有Ant Design,A
 ![screenshot](https://github.com/zittygit/PaperSearch/blob/master/documents/UI/UI.png)
 
 ### searching
-![screenshot](https://github.com/zittygit/PaperSearch/blob/master/documents/UI/201812280881444.png)
+![screenshot](https://github.com/zittygit/PaperSearch/blob/master/documents/UI/20181228081444.png)
 
 ### uploading
 ![screenshot](https://github.com/zittygit/PaperSearch/blob/master/documents/UI/20181228081710.png)
