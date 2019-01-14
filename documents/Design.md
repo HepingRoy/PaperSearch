@@ -9,3 +9,9 @@
 ![system_user_case](https://github.com/zittygit/PaperSearch/blob/master/documents/UI/20181228081739.png)
 ## Databse design
 ![er](https://github.com/zittygit/PaperSearch/blob/master/documents/UI/er.png)
+
+## API 设计
+![api](https://github.com/zittygit/PaperSearch/blob/master/documents/UI/api.png)
+![api](https://github.com/zittygit/PaperSearch/blob/master/documents/UI/api1.png)
+![api](https://github.com/zittygit/PaperSearch/blob/master/documents/UI/api-recommemd.png)
+![api](https://github.com/zittygit/PaperSearch/blob/master/documents/UI/api-topten.png)
