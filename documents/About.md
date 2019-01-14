@@ -26,7 +26,7 @@ PaperSearch是一个B/S架构的Paper内容检索服务。把实验室收录比�
   - 文档解析
     - 对PDF.DOCX等文件进行解析
   - 文档权限
-    - 针对用户实现文件的共享和私有      
+    - 针对用户实现文件的共享和私有
 
 ## Iterations
 ### Iteration one
@@ -56,7 +56,7 @@ PaperSearch是一个B/S架构的Paper内容检索服务。把实验室收录比�
  - 实现solr分词配置，solr索引配置，solr API封装，搜索内容高亮匹配
 ### Week 5
  - 实现框架搭建，创建github库，push代码
- - 后端：搭建配置SpringMVC，实现数据类，定义接口
+ - 后端：搭建配置SpringMVC，实现数据类，定义接口，配置swagger
  - 前端：使用ReactJs实现搜索页面
 
 ### Week 6
@@ -81,5 +81,19 @@ PaperSearch是一个B/S架构的Paper内容检索服务。把实验室收录比�
  - 后端：实现文件权限，针对用户选择实现文件隔离和共享
 
 ### week 10
+ - 后端：搭建FTP文件系统，实现FTPclent管理文件上传和下载，实现文件自动压缩备份定时脚本
 ---
+### Iteration three
+ - 实现基于用户搜索记录和下载记录进行搜索推荐功能和paper top10功能
+### week11
+ - 搜索推荐数据设计
+### week12
+ - 推荐算法选择，选择一个适合当前场景的推荐算法，调研协同过滤算法
+### week13
+ - 完成用户搜索推荐功能
+### week14
+ - 设计和完成paper top 10 功能
+### week15
+ -  对功能进行测试
+
 ### Final
