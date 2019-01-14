@@ -15,3 +15,6 @@
 - 产品定位
    - 面向实验室内部paper资源共享
    - B/S架构
+
+### 思维导图
+![first_meeting](https://github.com/zittygit/PaperSearch/blob/master/documents/meeting/first_meeting.png)
