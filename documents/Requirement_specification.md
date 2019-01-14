@@ -15,3 +15,4 @@
 ## State Model
 ![](https://github.com/zittygit/PaperSearch/blob/master/documents/Diagrams/state1.png)
 ## System Sequence Diagram
+![](https://github.com/zittygit/PaperSearch/blob/master/documents/Diagrams/sq.png)
