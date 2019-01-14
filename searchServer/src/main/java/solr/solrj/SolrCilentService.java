@@ -2,7 +2,7 @@ package solr.solrj;
 
 import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.common.SolrInputDocument;
-import solr.bean.SolrPage;
+import solr.model.SolrPage;
 import java.util.Collection;
 import java.util.List;
 

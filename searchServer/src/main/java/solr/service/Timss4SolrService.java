@@ -1,6 +1,6 @@
 package solr.service;
 
-import solr.bean.QResult;
+import solr.model.QResult;
 
 import java.io.InputStream;
 import java.util.Map;

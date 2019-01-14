@@ -7,13 +7,11 @@ import org.apache.solr.common.SolrInputDocument;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import solr.bean.QResult;
-import solr.bean.SolrPage;
+import solr.model.QResult;
+import solr.model.SolrPage;
 import solr.dataimport.FileConvertFactory;
 import solr.solrj.SolrCilentService;
 import java.io.InputStream;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**

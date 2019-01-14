@@ -6,7 +6,7 @@ import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.common.SolrInputDocument;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import solr.bean.SolrPage;
+import solr.model.SolrPage;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
