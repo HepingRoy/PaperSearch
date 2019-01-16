@@ -32,7 +32,7 @@
     "template-html-loader": "0.0.3",
     "url-loader": "^0.5.7",
     "webpack": "^3.1.11",
-    "webpack-dev-server": "^1.14.0",
+    "webpack-dev-server": "^3.1.11",
     "whatwg-fetch": "^1.0.0"
   },
   "dependencies": {
